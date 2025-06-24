@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import dayjs from 'dayjs';
 import API from '../services/api';
 
 type Transaction = {
@@ -33,10 +34,10 @@ const TransactionList: React.FC<Props> = ({ transactions, month, year, onRefresh
     )
   );
 
-  // Filter transactions by month, year AND selected category (if any)
+  // Filter transactions by month, year AND selected category
   const filtered = transactions.filter(tx => {
-    const d = new Date(tx.date);
-    const matchesDate = d.getFullYear() === year && d.getMonth() === month;
+    const d = dayjs(tx.date);
+    const matchesDate = d.year() === year && d.month() === month;
     const matchesCategory = selectedCategory ? tx.category === selectedCategory : true;
     return matchesDate && matchesCategory;
   });
