@@ -8,8 +8,4 @@ export default defineConfig({
             tailwindcss(),
       ],
   base: '/',
-<<<<<<< HEAD
-})
-=======
 });
->>>>>>> d0519ef54cb443f678cb615e2a2fac73bf49dbda
